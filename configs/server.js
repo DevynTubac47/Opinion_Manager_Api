@@ -6,6 +6,7 @@ import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
+import authRoutes from "../src/auth/auth.router.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -17,7 +18,7 @@ const middlewares = (app) => {
 }
 
 const routes = (app) =>{
-
+    app.use("/opinionManager/v1/auth",authRoutes)
 }
 
 const conectarDB = async () =>{
