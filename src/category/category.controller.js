@@ -1,5 +1,6 @@
 'use strict';
 
+import Publication from "../publication/publication.model.js";
 import Category from "./category.model.js";
 
 export const addCategory = async (req, res)=>{
@@ -93,12 +94,16 @@ export const deleteCategory = async (req, res) => {
         }
 
         await Category.findByIdAndDelete(id)
+
+        const categoryDefault = await Category.findOne({ nameCategory:"Novedades"})
+
+        await Publication.updateMany({ category: id }, { category: categoryDefault._id });
+
         return res.status(200).json({
             sucess: true,
             message: "Delete Category",
             category: categoryExists
         })
-
     }catch(error){
         return res.status(500).json({
             success: false,
@@ -113,8 +118,8 @@ export const addCategoryDefault = async () => {
         const category = await Category.findOne({ nameCategory: "General" });
         if (!category) {
             await Category.create({
-                nameCategory: "General",
-                descriptionCategory: "Categoría por defecto",
+                nameCategory: "Novedades",
+                descriptionCategory: "Publicaciones sobre lo más reciente, eventos y cambios importantes.",
             });
             console.log("Category created by default")
         }
