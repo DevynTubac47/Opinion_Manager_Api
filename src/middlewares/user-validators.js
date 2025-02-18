@@ -42,8 +42,6 @@ export const updatePasswordValidator = [
 ]
 
 export const updateUserValidator = [
-    validateJWT,
-    hasRoles("ADMIN_ROLE"),
     param("uid", "No es un ID válido").isMongoId(),
     param("uid").custom(userExists),
     validarCampos,

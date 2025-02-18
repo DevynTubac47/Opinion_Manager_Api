@@ -54,7 +54,7 @@ export const updatePassword = async (req, res) => {
 export const updateUser = async (req, res) => {
     try {
         const { uid } = req.params;
-        const { username, data} = req.body;
+        const { username, ...data} = req.body;
 
         if (username) {
             const existingUser = await User.findOne({ username });
@@ -66,13 +66,13 @@ export const updateUser = async (req, res) => {
             }
             data.username = username; 
         }
-
-        const updatedUser = await User.findByIdAndUpdate(uid, data, { new: true });
+        
+        const updatedData = await User.findByIdAndUpdate(uid, data, { new: true });
 
         res.status(200).json({
             success: true,
-            mesagge: 'Usuario Actualizado',
-            user: updatedUser,
+            mesage: 'Usuario Actualizado',
+            user: updatedData,
         });
     } catch (err) {
         res.status(500).json({
