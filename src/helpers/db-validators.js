@@ -1,5 +1,6 @@
 import User from "../user/user.model.js"
 import Publication from "../publication/publication.model.js"
+import Comment from "../comment/comment.model.js"
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({email})
@@ -55,6 +56,25 @@ export const userUpdate = async (uid = "", { req }) => {
     }
 }
 
+export const userCommentUpdate = async (uid = "", { req }) => {
+    try{   
+        if (!req.usuario) {
+            throw new Error("Usuario no autenticado");
+        }
+
+        const comment = await Comment.findById(uid);
+        if(!comment) {
+            throw new Error("Comment not found")
+        }
+
+        if (comment.creator.toString() !== req.usuario._id.toString()){
+            throw new Error("You can't update this comment")
+        }
+    }catch(error){
+        throw new Error(error.message)
+    }
+}
+
 export const userDelete = async (uid = "", { req }) => {
     try{   
         if (!req.usuario) {
@@ -68,6 +88,25 @@ export const userDelete = async (uid = "", { req }) => {
 
         if (publication.creator.toString() !== req.usuario._id.toString()){
             throw new Error("You can't delete this post")
+        }
+    }catch(error){
+        throw new Error(error.message)
+    }
+}
+
+export const userCommentDelete = async (uid = "", { req }) => {
+    try{   
+        if (!req.usuario) {
+            throw new Error("Usuario no autenticado");
+        }
+
+        const comment = await Comment.findById(uid);
+        if(!comment) {
+            throw new Error("Comment not found")
+        }
+
+        if (comment.creator.toString() !== req.usuario._id.toString()){
+            throw new Error("You can't delete this comment")
         }
     }catch(error){
         throw new Error(error.message)
