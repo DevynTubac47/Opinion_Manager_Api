@@ -1,5 +1,4 @@
 import Comment from "./comment.model.js";
-import User from "../user/user.model.js";
 import Publication from "../publication/publication.model.js";
 
 export const addComment = async(req, res) => {
