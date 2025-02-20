@@ -1,6 +1,3 @@
-# Opinion_Manager_Api
-Este sistema tiene como objetivo crear un sistema de gestión de opiniones similar a las publicaciones de Facebook, con funcionalidades específicas centradas en la interacción y expresión de opiniones por parte de los usuarios
-
 # 📘 Opinion Manager
 
 Sistema de gestión de opiniones similar a las publicaciones de Facebook. Permite a los usuarios registrarse, iniciar sesión, crear publicaciones, comentar y gestionar categorías.
@@ -25,7 +22,6 @@ Sistema de gestión de opiniones similar a las publicaciones de Facebook. Permit
 
    ```bash
    git clone https://github.com/tu_usuario/opinion-manager.git
-   cd opinion-manager
    ```
 
 2. Instala las dependencias:
@@ -192,6 +188,41 @@ Sistema de gestión de opiniones similar a las publicaciones de Facebook. Permit
 
    **DELETE** `/opinionManager/v1/publication/deletePublication/:id`
 
+### 💬 Comentarios
+
+1. **Agregar comentario a una publicación**
+
+   **POST** `/opinionManager/v1/comment/addComment`
+
+   **Body (JSON):**
+
+   ```json
+   {
+     "publicationId": "id_de_la_publicacion",
+     "textComment": "Este es un comentario"
+   }
+   ```
+
+2. **Listar comentarios de una publicación**
+
+   **GET** `/opinionManager/v1/comment/:publicationId`
+
+3. **Actualizar comentario**
+
+   **PUT** `/opinionManager/v1/comment/updateComment/:id`
+
+   **Body (JSON):**
+
+   ```json
+   {
+     "textComment": "Comentario actualizado"
+   }
+   ```
+
+4. **Eliminar comentario**
+
+   **DELETE** `/opinionManager/v1/comment/deleteComment/:id`
+
 ## 🧪 Pruebas con Postman
 
 1. Importa la colección de Postman desde el archivo proporcionado o agrega los endpoints manualmente.
@@ -202,4 +233,5 @@ Sistema de gestión de opiniones similar a las publicaciones de Facebook. Permit
 - El sistema cuenta con validación de datos y manejo de errores.
 - Solo un administrador puede gestionar las categorías.
 - El ID del usuario se obtiene del token y no debe enviarse en el cuerpo de las solicitudes.
-- 
+
+
