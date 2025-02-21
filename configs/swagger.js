@@ -20,7 +20,11 @@ const options ={
         ]
     },
     apis:[
-        "./src/auth/auth.controller.js"
+        "./src/auth/auth.controller.js",
+        "./src/user/user.controller.js",
+        "./src/category/category.controller.js",
+        "./src/publication/publication.controller.js",
+        "./src/comment/comment.controller.js",
     ]
 }
 
