@@ -10,6 +10,8 @@ const router = Router();
  *   post:
  *     summary: Añadir una nueva categoría
  *     tags: [Categorías]
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -44,6 +46,8 @@ router.get("/", getCategory);
  *   put:
  *     summary: Actualizar una categoría
  *     tags: [Categorías]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -73,6 +77,8 @@ router.put("/updateCategory/:id", updateCategoryValidator, updateCategory)
  *   delete:
  *     summary: Eliminar una categoría
  *     tags: [Categorías]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id

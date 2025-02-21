@@ -10,6 +10,8 @@ const router = Router();
  *   post:
  *     summary: Añadir un nuevo comentario a una publicación
  *     tags: [Comentarios]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
@@ -41,6 +43,8 @@ router.post("/publication/:uid/addComment", createdCommentValidator, addComment)
  *   get:
  *     summary: Obtener comentarios por publicación
  *     tags: [Comentarios]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
@@ -64,6 +68,8 @@ router.get("/publication/:uid/comments", getCommentbyPublication);
  *   patch:
  *     summary: Actualizar un comentario
  *     tags: [Comentarios]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
@@ -95,6 +101,8 @@ router.patch("/updateComment/:uid", updateCommentValidator, updateComment);
  *   delete:
  *     summary: Eliminar un comentario
  *     tags: [Comentarios]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid

@@ -19,6 +19,8 @@ const router = Router();
  *   patch:
  *     summary: Update a user's password
  *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
@@ -57,6 +59,8 @@ router.patch("/updatePassword/:uid", updatePasswordValidator, updatePassword);
  *   put:
  *     summary: Update a user's information
  *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
@@ -88,6 +92,8 @@ router.put("/updateUser/:uid", updateUserValidator, updateUser);
  *   patch:
  *     summary: Update a user's profile picture
  *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid

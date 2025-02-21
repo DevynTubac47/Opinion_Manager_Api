@@ -17,14 +17,27 @@ const options ={
             {
                 url: "http://127.0.0.1:3001/opinionManager/v1"
             }
-        ]
+        ],
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: "http",
+                    scheme: "bearer",
+                    bearerFormat: "JWT"
+                }
+            }
+        }
     },
     apis:[
-        "./src/auth/auth.controller.js",
-        "./src/user/user.controller.js",
-        "./src/category/category.controller.js",
-        "./src/publication/publication.controller.js",
-        "./src/comment/comment.controller.js",
+        "./src/auth/auth.router.js",
+        "./src/user/user.model.js",
+        "./src/user/user.router.js*",
+        "./src/category/category.model.js",
+        "./src/category/categoty.router.js*",
+        "./src/publication/publication.model.js",
+        "./src/publication/publication.router.js*",
+        "./src/comment/comment.model.js",
+        "./src/comment/comment.router.js*",
     ]
 }
 

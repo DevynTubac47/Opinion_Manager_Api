@@ -17,6 +17,8 @@ const router = Router();
  *   post:
  *     summary: Create a new publication
  *     tags: [Publications]
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -41,6 +43,8 @@ router.post("/addPublication", createdPublicationValidator, addPublication);
  *   get:
  *     summary: Get a list of publications
  *     tags: [Publications]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: limite
@@ -66,6 +70,8 @@ router.get("/", getPublication);
  *   put:
  *     summary: Update a publication
  *     tags: [Publications]
+ *     security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
@@ -97,6 +103,8 @@ router.put("/updatePublication/:uid", updatePublicationValidator, updatePublicat
  *   delete:
  *     summary: Delete a publication
  *     tags: [Publications]
+ *     security:
+ *      - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: uid
