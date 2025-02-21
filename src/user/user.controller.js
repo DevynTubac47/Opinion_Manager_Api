@@ -238,24 +238,18 @@ export const updateProfilePicture = async (req, res) => {
  *         description: Error creating user
  */
 export const addAdminDefault = async() => {
-    try{
-        const admin = await User.findOne({ role: "ADMIN_ROLE"})
-        if(!admin) {
-            const profilePicture = "pictureAdmin.jpg";
-            await User.create({
-                name: "Devyn",
-                surname: "Gomez",
-                username: "Dev_vyn",
-                email: "devGomez@gmail.com",
-                password: await hash("123456789"),
-                role: "ADMIN_ROLE",
-                phone: "12345678",
-                profilePicture: profilePicture
-            })
-            console.log("Admin created by default")
-        }
-
-    }catch(err){
-        console.log("Error creating user")
+    const admin = await User.findOne({ role: "ADMIN_ROLE"})
+    if(!admin) {
+        const profilePicture = "pictureAdmin.jpg";
+        await User.create({
+            name: "Devyn",
+            surname: "Gomez",
+            username: "Dev_vyn",
+            email: "devGomez@gmail.com",
+            password: await hash("123456789"),
+            role: "ADMIN_ROLE",
+            phone: "12345678",
+            profilePicture: profilePicture
+        })
     }
 }

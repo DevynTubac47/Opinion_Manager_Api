@@ -32,17 +32,17 @@
 								},
 								{
 									"key": "username",
-									"value": "Dev11",
+									"value": "Dev_20",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "devyn11@gmail.com",
+									"value": "devyn20@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "12345678",
+									"value": "IN6BM",
 									"type": "text"
 								},
 								{
@@ -90,7 +90,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"Dev10\",\r\n    \"password\":\"123456789\"\r\n}",
+							"raw": "{\r\n    \"username\":\"Dev_20\",\r\n    \"password\":\"IN6BM\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -129,7 +129,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"oldPassword\":\"12345678\",\r\n    \"newPassword\":\"123456789\"\r\n}",
+							"raw": "{\r\n    \"oldPassword\":\"IN6BM\",\r\n    \"newPassword\":\"PE6DMIN6BM\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -200,7 +200,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"yddddn\",\r\n    \"username\": \"Hola da\",\r\n    \"phone\":\"12345678\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Orlando\",\r\n    \"username\": \"Devyn47\",\r\n    \"phone\":\"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -247,7 +247,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nameCategory\":\"Literatura5\",\r\n    \"descriptionCategory\": \"Libros\"\r\n}",
+							"raw": "{\r\n    \"nameCategory\":\"Programación\",\r\n    \"descriptionCategory\": \"En esta categoría encontrarás publicaciones sobre el desarrollo web.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -313,7 +313,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descriptionCategory\":\"Hola Mundo\"\r\n}",
+							"raw": "{\r\n    \"descriptionCategory\":\"Descubre los mejores enfoques y herramientas para el desarrollo de software profesional.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -393,7 +393,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"Programaciónjdak\",\r\n    \"nameCategory\": \"General\",\r\n    \"textPublication\": \"DADADADADASDAkdakdkasfninfias\"\r\n}",
+							"raw": "{\r\n    \"title\":\"Programación Funcional con JavaScript\",\r\n    \"nameCategory\": \"Programación\",\r\n    \"textPublication\": \"En esta publicación exploraremos los principios fundamentales de la programación funcional utilizando JavaScript.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -459,7 +459,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"MATE\",\r\n    \"textPublication\": \"Literatura2\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Java Script\",\r\n    \"textPublication\": \"Descubre cómo trabajar con funciones puras, la inmutabilidad de los datos y cómo aprovechar características como las funciones de orden superior y los cierres (closures). \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -566,7 +566,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"textComment\": \"Hola Mundaox daddasn daushucba\"\r\n}",
+							"raw": "{\r\n    \"textComment\": \"Excelente artículo, la programación funcional con JavaScript realmente mejora la claridad y mantenibilidad del código. \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -609,7 +609,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"newComment\":\"Devyn\"\r\n}",
+							"raw": "{\r\n    \"newComment\":\" ¡Gracias por compartir estos ejemplos prácticos!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -225,16 +225,10 @@ export const deleteCategory = async (req, res) => {
  *         description: Error al añadir la categoría por defecto
  */
 export const addCategoryDefault = async () => {
-    try{
-        const category = await Category.findOne({ nameCategory: "General" });
-        if (!category) {
-            await Category.create({
-                nameCategory: "Novedades",
-                descriptionCategory: "Publicaciones sobre lo más reciente, eventos y cambios importantes.",
-            });
-            console.log("Category created by default")
-        }
-    }catch(error){
-        console.log("Error creating category")
+    const category = await Category.findOne({ nameCategory: "Novedades" });
+    if (!category) {
+        await Category.create({
+            nameCategory: "Novedades",
+            descriptionCategory: "Publicaciones sobre lo más reciente, eventos y cambios importantes.",});
     }
 }
