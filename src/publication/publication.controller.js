@@ -4,6 +4,35 @@ import Publication from "./publication.model.js";
 import Category from "../category/category.model.js";
 import User from "../user/user.model.js";
 
+/**
+ * @swagger
+ * tags:
+ *   name: Publications
+ *   description: API for managing publications
+ */
+
+/**
+ * @swagger
+ * /publications:
+ *   post:
+ *     summary: Create a new publication
+ *     tags: [Publications]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Publication'
+ *     responses:
+ *       200:
+ *         description: The publication was successfully created
+ *       400:
+ *         description: Bad request
+ *       404:
+ *         description: Category not found
+ *       500:
+ *         description: Error publishing
+ */
 export const addPublication = async (req, res) =>{
     try{
         const data = req.body;
@@ -40,6 +69,29 @@ export const addPublication = async (req, res) =>{
     }
 }
 
+/**
+ * @swagger
+ * /publications:
+ *   get:
+ *     summary: Get a list of publications
+ *     tags: [Publications]
+ *     parameters:
+ *       - in: query
+ *         name: limite
+ *         schema:
+ *           type: integer
+ *         description: Limit the number of results
+ *       - in: query
+ *         name: desde
+ *         schema:
+ *           type: integer
+ *         description: Skip the first n results
+ *     responses:
+ *       200:
+ *         description: A list of publications
+ *       500:
+ *         description: Error getting list of publications
+ */
 export const getPublication = async (req, res) => {
     try{
         const {limite = 5, desde = 0} = req.query
@@ -68,6 +120,35 @@ export const getPublication = async (req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /publications/{uid}:
+ *   put:
+ *     summary: Update a publication
+ *     tags: [Publications]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The publication id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Publication'
+ *     responses:
+ *       200:
+ *         description: The publication was successfully updated
+ *       400:
+ *         description: Bad request
+ *       404:
+ *         description: Publication not found
+ *       500:
+ *         description: Error updating publication
+ */
 export const updatePublication = async(req, res) => {
     try{
         const {uid} = req.params;
@@ -77,7 +158,7 @@ export const updatePublication = async(req, res) => {
 
         res.status(200).json({
             success: true,
-            message: 'Update Pubication',
+            message: 'Update Publication',
             publication,
         })
     }catch(error){
@@ -89,6 +170,27 @@ export const updatePublication = async(req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /publications/{uid}:
+ *   delete:
+ *     summary: Delete a publication
+ *     tags: [Publications]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The publication id
+ *     responses:
+ *       200:
+ *         description: The publication was successfully deleted
+ *       404:
+ *         description: Publication not found
+ *       500:
+ *         description: Error deleting publication
+ */
 export const deletePublication = async(req, res) => {
     try{
         const { uid } = req.params;

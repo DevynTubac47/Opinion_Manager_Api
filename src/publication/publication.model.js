@@ -1,5 +1,37 @@
 import { Schema, model } from "mongoose";
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Publication:
+ *       type: object
+ *       required:
+ *         - title
+ *         - category
+ *         - textPublication
+ *         - creator
+ *       properties:
+ *         title:
+ *           type: string
+ *           description: The title of the publication
+ *           maxLength: 100
+ *         category:
+ *           type: string
+ *           description: The category of the publication
+ *         textPublication:
+ *           type: string
+ *           description: The text of the publication
+ *         creator:
+ *           type: string
+ *           description: The creator of the publication
+ *       example:
+ *         title: "Sample Publication"
+ *         category: "60d0fe4f5311236168a109ca"
+ *         textPublication: "This is a sample publication."
+ *         creator: "60d0fe4f5311236168a109cb"
+ */
+
 const publicationSchema = new Schema({
     title:{
         type: String,

@@ -3,6 +3,29 @@
 import Publication from "../publication/publication.model.js";
 import Category from "./category.model.js";
 
+/**
+ * @swagger
+ * /category:
+ *   post:
+ *     summary: Añadir una nueva categoría
+ *     tags: [Category]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nameCategory:
+ *                 type: string
+ *               descriptionCategory:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Categoría añadida exitosamente
+ *       500:
+ *         description: Error al añadir la categoría
+ */
 export const addCategory = async (req, res)=>{
     try{
         const data = req.body;
@@ -26,6 +49,29 @@ export const addCategory = async (req, res)=>{
     }
 }
 
+/**
+ * @swagger
+ * /category:
+ *   get:
+ *     summary: Obtener una lista de categorías
+ *     tags: [Category]
+ *     parameters:
+ *       - in: query
+ *         name: limite
+ *         schema:
+ *           type: integer
+ *         description: Número de categorías a devolver
+ *       - in: query
+ *         name: desde
+ *         schema:
+ *           type: integer
+ *         description: Número de categorías a omitir
+ *     responses:
+ *       200:
+ *         description: Lista de categorías obtenida exitosamente
+ *       500:
+ *         description: Error al obtener la lista de categorías
+ */
 export const getCategory = async (req, res) => {
     try{
         const { limite = 5, desde = 0 } = req.query
@@ -53,6 +99,38 @@ export const getCategory = async (req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /category/{id}:
+ *   put:
+ *     summary: Actualizar una categoría existente
+ *     tags: [Category]
+ *     parameters:
+*       - in: path
+*         name: id
+*         required: true
+*         schema:
+*           type: string
+*         description: ID de la categoría a actualizar
+*     requestBody:
+*       required: true
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             properties:
+*               nameCategory:
+*                 type: string
+*               descriptionCategory:
+*                 type: string
+*     responses:
+*       200:
+*         description: Categoría actualizada exitosamente
+*       404:
+*         description: Categoría no encontrada
+*       500:
+*         description: Error al actualizar la categoría
+*/
 export const updateCategory = async(req, res) => {
     try{
         const { id } = req.params;
@@ -81,6 +159,27 @@ export const updateCategory = async(req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /category/{id}:
+ *   delete:
+ *     summary: Eliminar una categoría existente
+ *     tags: [Category]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID de la categoría a eliminar
+ *     responses:
+ *       200:
+ *         description: Categoría eliminada exitosamente
+ *       404:
+ *         description: Categoría no encontrada
+ *       500:
+ *         description: Error al eliminar la categoría
+ */
 export const deleteCategory = async (req, res) => {
     try{
         const { id } = req.params
@@ -113,6 +212,18 @@ export const deleteCategory = async (req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /category/default:
+ *   post:
+ *     summary: Añadir una categoría por defecto
+ *     tags: [Category]
+ *     responses:
+ *       200:
+ *         description: Categoría por defecto añadida exitosamente
+ *       500:
+ *         description: Error al añadir la categoría por defecto
+ */
 export const addCategoryDefault = async () => {
     try{
         const category = await Category.findOne({ nameCategory: "General" });

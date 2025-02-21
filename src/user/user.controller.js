@@ -6,6 +6,49 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description: API for managing users
+ */
+
+/**
+ * @swagger
+ * /users/{uid}/password:
+ *   put:
+ *     summary: Update a user's password
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The user id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               oldPassword:
+ *                 type: string
+ *                 description: The current password of the user
+ *               newPassword:
+ *                 type: string
+ *                 description: The new password of the user
+ *     responses:
+ *       200:
+ *         description: The password was successfully updated
+ *       400:
+ *         description: Bad request
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Error updating password
+ */
 export const updatePassword = async (req, res) => {
     try {
         const { uid } = req.params;
@@ -51,6 +94,35 @@ export const updatePassword = async (req, res) => {
     }
 };
 
+/**
+ * @swagger
+ * /users/{uid}:
+ *   put:
+ *     summary: Update a user's information
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The user id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       200:
+ *         description: The user was successfully updated
+ *       400:
+ *         description: Bad request
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Error updating user
+ */
 export const updateUser = async (req, res) => {
     try {
         const { uid } = req.params;
@@ -83,6 +155,40 @@ export const updateUser = async (req, res) => {
     }
 };
 
+/**
+ * @swagger
+ * /users/{uid}/profile-picture:
+ *   put:
+ *     summary: Update a user's profile picture
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The user id
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: The new profile picture of the user
+ *     responses:
+ *       200:
+ *         description: The profile picture was successfully updated
+ *       400:
+ *         description: Bad request
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Error updating profile picture
+ */
 export const updateProfilePicture = async (req, res) => {
     try {
         const { uid } = req.params;
@@ -119,6 +225,18 @@ export const updateProfilePicture = async (req, res) => {
     }
 };
 
+/**
+ * @swagger
+ * /users/admin-default:
+ *   post:
+ *     summary: Add a default admin user
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Admin created by default
+ *       500:
+ *         description: Error creating user
+ */
 export const addAdminDefault = async() => {
     try{
         const admin = await User.findOne({ role: "ADMIN_ROLE"})

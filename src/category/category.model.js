@@ -1,5 +1,25 @@
 import { Schema, model } from "mongoose";
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Category:
+ *       type: object
+ *       required:
+ *         - nameCategory
+ *         - descriptionCategory
+ *       properties:
+ *         nameCategory:
+ *           type: string
+ *           description: El nombre de la categoría
+ *         descriptionCategory:
+ *           type: string
+ *           description: La descripción de la categoría
+ *       example:
+ *         nameCategory: "Tecnología"
+ *         descriptionCategory: "Categoría para publicaciones relacionadas con tecnología"
+ */
 const categorySchema = Schema({
     nameCategory:{
         type: String,

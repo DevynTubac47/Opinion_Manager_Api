@@ -1,6 +1,35 @@
 import Comment from "./comment.model.js";
 import Publication from "../publication/publication.model.js";
 
+/**
+ * @swagger
+ * /comments/{uid}:
+ *   post:
+ *     summary: Añadir un nuevo comentario a una publicación
+ *     tags: [Comentarios]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de la publicación
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               textComment:
+ *                 type: string
+ *                 description: Texto del comentario
+ *     responses:
+ *       200:
+ *         description: Comentario añadido exitosamente
+ *       500:
+ *         description: Error guardando el comentario
+ */
 export const addComment = async(req, res) => {
     try{
         const { uid } = req.params;
@@ -29,6 +58,27 @@ export const addComment = async(req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /comments/publication/{uid}:
+ *   get:
+ *     summary: Obtener comentarios por publicación
+ *     tags: [Comentarios]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de la publicación
+ *     responses:
+ *       200:
+ *         description: Lista de comentarios obtenida exitosamente
+ *       404:
+ *         description: Publicación no encontrada
+ *       500:
+ *         description: Error obteniendo la lista de comentarios
+ */
 export const getCommentbyPublication = async(req, res) =>{
     try{
         const { uid } = req.params;
@@ -58,6 +108,35 @@ export const getCommentbyPublication = async(req, res) =>{
     }
 }
 
+/**
+ * @swagger
+ * /comments/{uid}:
+ *   put:
+ *     summary: Actualizar un comentario
+ *     tags: [Comentarios]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID del comentario
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               newComment:
+ *                 type: string
+ *                 description: Nuevo texto del comentario
+ *     responses:
+ *       200:
+ *         description: Comentario actualizado exitosamente
+ *       500:
+ *         description: Error actualizando el comentario
+ */
 export const updateComment = async(req, res) =>{
     try{
         const { uid } = req.params;
@@ -82,6 +161,27 @@ export const updateComment = async(req, res) =>{
     }
 }
 
+/**
+ * @swagger
+ * /comments/{uid}:
+ *   delete:
+ *     summary: Eliminar un comentario
+ *     tags: [Comentarios]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID del comentario
+ *     responses:
+ *       200:
+ *         description: Comentario eliminado exitosamente
+ *       404:
+ *         description: Comentario no encontrado
+ *       500:
+ *         description: Error eliminando el comentario
+ */
 export const deleteComment = async(req, res) =>{
     try{
         const { uid } = req.params;
