@@ -1,0 +1,673 @@
+{
+	"info": {
+		"_postman_id": "e5a12af8-0a79-402b-a9f9-f489b4f17d93",
+		"name": "Opinion Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37640614"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Devyn",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Gomez",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Dev11",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "devyn11@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/devyn/OneDrive/Pictures/toad.jpg"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Dev10\",\r\n    \"password\":\"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Update Password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"12345678\",\r\n    \"newPassword\":\"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/user/updatePassword/67b4f2082e0f379270f7746d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"user",
+								"updatePassword",
+								"67b4f2082e0f379270f7746d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile Picture",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/devyn/OneDrive/Pictures/descarga.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/user/updateProfilePicture/67b3afabb33723c2beffd92b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"user",
+								"updateProfilePicture",
+								"67b3afabb33723c2beffd92b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"yddddn\",\r\n    \"username\": \"Hola da\",\r\n    \"phone\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/user/updateUser/67b3b86c924712fe9989cf33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"user",
+								"updateUser",
+								"67b3b86c924712fe9989cf33"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZjU5MjI3YmI5YmQ0NGNiZWU5ZTIiLCJpYXQiOjE3Mzk5MTYyMzUsImV4cCI6MTczOTkxOTgzNX0.yLOOwkgGvNhv7PN-wv10FtHiabaR2sZcDAEtG9XzZA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nameCategory\":\"Literatura5\",\r\n    \"descriptionCategory\": \"Libros\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/category/addCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"category",
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Category",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descriptionCategory\":\"Hola Mundo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/category/updateCategory/67b3f5cb27bb9bd44cbee9e6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"category",
+								"updateCategory",
+								"67b3f5cb27bb9bd44cbee9e6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZjU5MjI3YmI5YmQ0NGNiZWU5ZTIiLCJpYXQiOjE3Mzk5MTYyMzUsImV4cCI6MTczOTkxOTgzNX0.yLOOwkgGvNhv7PN-wv10FtHiabaR2sZcDAEtG9XzZA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/category/deleteCategory/67b5064b39f482842d25b838",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"category",
+								"deleteCategory",
+								"67b5064b39f482842d25b838"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "Add Publication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I0ZjIwODJlMGYzNzkyNzBmNzc0NmQiLCJpYXQiOjE3Mzk5MTk0NTgsImV4cCI6MTczOTkyMzA1OH0.wz_fO-BTILNpjoILg5PlaL-2U1kKIPuXw5Eeah44qlU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Programaciónjdak\",\r\n    \"nameCategory\": \"General\",\r\n    \"textPublication\": \"DADADADADASDAkdakdkasfninfias\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/publication/addPublication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"publication",
+								"addPublication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Publications",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/publication/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"publication",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Publication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I0ZjIwODJlMGYzNzkyNzBmNzc0NmQiLCJpYXQiOjE3Mzk5MTk0NTgsImV4cCI6MTczOTkyMzA1OH0.wz_fO-BTILNpjoILg5PlaL-2U1kKIPuXw5Eeah44qlU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"MATE\",\r\n    \"textPublication\": \"Literatura2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/publication/updatePublication/67b4e0985fe9e874c0eca6fd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"publication",
+								"updatePublication",
+								"67b4e0985fe9e874c0eca6fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Publication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I0MGY5ZGI1MjkyOTMzODUyZjg2NTkiLCJpYXQiOjE3Mzk5MTMzMzAsImV4cCI6MTczOTkxNjkzMH0.U8jiQYGVKkLXQTE5qNcHVHOlhY4lURwP0ROSL16IYkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/publication/deletePublication/67b4e11977c2e1c4a78971e6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"publication",
+								"deletePublication",
+								"67b4e11977c2e1c4a78971e6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "List Comment",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/comment/publication/67b4fb00053c240cdf52c2fd/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"comment",
+								"publication",
+								"67b4fb00053c240cdf52c2fd",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Coment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I0ZjIwODJlMGYzNzkyNzBmNzc0NmQiLCJpYXQiOjE3Mzk5MjQ2NjMsImV4cCI6MTczOTkyODI2M30.PPx6H0bBPxlGJqFhzK1u5X60BAzJXyhSjHuReJxyKFw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"textComment\": \"Hola Mundaox daddasn daushucba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/comment/publication/67b4fb00053c240cdf52c2fd/addComment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"comment",
+								"publication",
+								"67b4fb00053c240cdf52c2fd",
+								"addComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I0ZjE2MTEzMmYwNzFkZDdiNjAyMTEiLCJpYXQiOjE3Mzk5MzE1MDksImV4cCI6MTczOTkzNTEwOX0.GVa0xTks0LtGF12w-ld6MTI-ekI-MvbcvVBxUOkUmIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newComment\":\"Devyn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/comment/updateComment/67b528bd7ec7149ba04dd59e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"comment",
+								"updateComment",
+								"67b528bd7ec7149ba04dd59e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I0ZjIwODJlMGYzNzkyNzBmNzc0NmQiLCJpYXQiOjE3Mzk5MzMyNDUsImV4cCI6MTczOTkzNjg0NX0.kFeo65b-uKDoip8Raynm4Bf6Ym56OdE4mKfHC5EpMn8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/opinionManager/v1/comment/deleteComment/67b528bd7ec7149ba04dd59e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"opinionManager",
+								"v1",
+								"comment",
+								"deleteComment",
+								"67b528bd7ec7149ba04dd59e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
